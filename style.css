@@ -1,0 +1,570 @@
+:root {
+    --primary-color: #d32f2f;
+    --primary-dark: #b71c1c;
+    --primary-light: #ffcdd2;
+    --secondary-color: #ff9800;
+    --secondary-dark: #e65100;
+    --accent-color: #7b1fa2;
+    --success: #4caf50;
+    --warning: #ff9800;
+    --error: #f44336;
+    --text-color: #333;
+    --text-light: #666;
+    --light-gray: #e0e0e0;
+    --medium-gray: #bdbdbd;
+    --white: #ffffff;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f5f5f5;
+    padding-bottom: 40px;
+}
+
+/* Header amélioré */
+.header {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.auth {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.auth span {
+    font-weight: 500;
+}
+
+/* Boutons améliorés */
+.button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--transition);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid transparent;
+}
+
+.button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button.success {
+    background-color: var(--success);
+}
+
+.button.success:hover {
+    background-color: #388e3c;
+}
+
+.button.warning {
+    background-color: var(--warning);
+}
+
+.button.warning:hover {
+    background-color: var(--secondary-dark);
+}
+
+.button.error {
+    background-color: var(--error);
+}
+
+.button.error:hover {
+    background-color: #c62828;
+}
+
+.button.accent {
+    background-color: var(--accent-color);
+}
+
+.button.accent:hover {
+    background-color: #6a1b9a;
+}
+
+.button.outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.button.outline:hover {
+    background-color: rgba(211, 47, 47, 0.1);
+}
+
+/* Conteneur principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Cartes de pizza améliorées */
+.pizzas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.pizza-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pizza-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.pizza-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.pizza-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.pizza-card:hover .pizza-image {
+    transform: scale(1.05);
+}
+
+.pizza-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--success);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.pizza-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.pizza-info h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: var(--text-light);
+    font-size: 14px;
+    margin: 10px 0;
+    flex-grow: 1;
+}
+
+.prix {
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--primary-color);
+    margin: 15px 0 10px 0;
+}
+
+.vegetarienne {
+    color: var(--success);
+    font-size: 14px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.vegetarienne::before {
+    content: "🌱";
+}
+
+/* Allergènes améliorés */
+.allergen-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 15px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    min-width: 24px;
+    height: 24px;
+    line-height: 16px;
+    color: white;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.allergens-container {
+    margin: 15px 0;
+}
+
+.allergens-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Légende des allergènes */
+.allergens-legend {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin: 40px auto;
+    max-width: 1000px;
+    box-shadow: var(--shadow);
+}
+
+.allergens-legend h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.legend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.legend-color {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
+}
+
+.legend-info h4 {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.legend-info p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+/* Formulaires améliorés */
+.form-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="file"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--light-gray);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(211, 47, 47, 0.2);
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+.image-preview-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.image-preview {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+/* Tableaux améliorés */
+.table-container {
+    overflow-x: auto;
+    margin: 30px 0;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.action-buttons .button {
+    padding: 6px 12px;
+    font-size: 13px;
+    min-width: 80px;
+    text-align: center;
+}
+
+/* Messages d'alerte */
+.message {
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+}
+
+.message.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-left: 4px solid var(--success);
+}
+
+.message.error {
+    background-color: #ffebee;
+    color: #c62828;
+    border-left: 4px solid var(--error);
+}
+
+.message.info {
+    background-color: #e3f2fd;
+    color: #1565c0;
+    border-left: 4px solid #1976d2;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: var(--text-light);
+    font-size: 14px;
+    border-top: 1px solid var(--light-gray);
+}
+
+/* Améliorations responsive */
+@media (max-width: 1024px) {
+    .pizzas-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .pizzas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .legend-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .button {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .legend-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .legend-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}
+
+/* Style pour les badges d'allergènes dans la légende */
+.allergen-badge {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 24px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}

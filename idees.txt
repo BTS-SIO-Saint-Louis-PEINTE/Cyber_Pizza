@@ -1,0 +1,22 @@
+- Aucun mot de passe BDD    # OK
+
+- Accès GET à la Modification des pizzas
+
+- Injection XSS : <script>console.log("hello")</script>
+    htmlspecialchars() pour les inputs
+
+- Injection code php dans les images
+
+- Modification points fidelité
+
+- Modification allergènes
+
+- Règles RGPD (Santé et Religion)
+
+- Reverse shell
+
+- Indication si mdp ou username est mauvais
+
+- Passage des GET et POST
+
+- Upload BDD
